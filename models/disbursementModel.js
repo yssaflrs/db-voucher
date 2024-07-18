@@ -34,6 +34,9 @@ const disbursementSchema = new mongoose.Schema({
     accounting: {
         type: String
     },
+    printedName: {
+        type: String
+    }
 
 }, {
     timestamps: true

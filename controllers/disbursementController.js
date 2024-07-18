@@ -7,9 +7,9 @@ const getVoucher = async(req, res) => {
 }
 
 const createVoucher = async(req, res) => {
-    const { no, vn, date, paymentTo, amount, address, descOfPayment, checkNumber, invoiceNo, preparedBy, accounting} = req.body
+    const { no, vn, date, paymentTo, amount, address, descOfPayment, checkNumber, invoiceNo, preparedBy, accounting, printedName} = req.body
 
-    if(!no || !vn || !date || !paymentTo || !amount || !address || !descOfPayment || !checkNumber || !invoiceNo || !preparedBy || !accounting){
+    if(!no || !vn || !date || !paymentTo || !amount || !address || !descOfPayment || !checkNumber || !invoiceNo || !preparedBy || !accounting || !printedName){
         return res.status(400).json({ error: 'All fields are required' })
     }
     
@@ -24,7 +24,8 @@ const createVoucher = async(req, res) => {
         checkNumber, 
         invoiceNo, 
         preparedBy, 
-        accounting
+        accounting,
+        printedName
     })
 
     res.status(201).json({msg: 'add voucher', addVoucher})
